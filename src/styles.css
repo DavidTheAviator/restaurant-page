@@ -76,15 +76,18 @@ button, input[type="submit"], input[type="reset"] {
 
 :root{
     --raw-umber: #99643eff;
+    --raw-umber-trans: rgba(153, 100, 62, 0.072);
     --ut-orange: #f88517ff;
     --lion: #c89c7bff;
     --bistre: #2f200eff;
+    --timberwolf-dark: rgb(208, 201, 195);
     --timberwolf: #dfd5ccff;
     --timberwolf-light: rgb(248, 240, 234);
     --sienna: #752d0fff;
 
 
     --std-shadow: 0px 5px 10px rgba(0, 0, 0, 0.59);
+    --sym-shadow: 0px 0px 10px rgba(0, 0, 0, 0.559);
     --img-shadow: rgba(0, 0, 0, 0.881) 1.95px 1.95px 2.6px;
 }
 
@@ -94,6 +97,9 @@ body{
 
     background: linear-gradient(to right, var(--timberwolf),var(--timberwolf-light));
     font-family: "libertinus", sans-serif;
+
+    display: flex;
+    flex-direction: column;
 }
 
 header{
@@ -128,7 +134,7 @@ header {
     margin-top: 20px;
     font-size: 2.5rem;
     color: rgb(255, 255, 255);
-    width: fit-content;
+    width: fit-content-grid;
     
     display: flex;
     justify-content:space-between;
@@ -154,15 +160,47 @@ nav button:hover{
 
 #content{
     width: 100%;
-    display:grid;
-    grid-template-columns: repeat(3, minmax(300px, 1fr));
-
-
     padding: 40px 100px;
-    row-gap: 80px;
+    flex:1;
+    min-height: 70vh;
+    
 }
 
-#content img {
+
+li {
+    list-style: none;
+}
+
+
+footer {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--lion);
+    color: var(--timberwolf);
+    font-size: 1rem;
+
+
+}
+
+
+#home-grid{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    row-gap: 80px;
+
+
+
+}
+
+
+
+/* HOMEPAGE CSS */
+
+#home-grid img {
     width: 100%;
     height: 500px;
     margin: 10px;
@@ -173,18 +211,18 @@ nav button:hover{
    
 }
 
-#content div {
+#home-grid div {
     font-size: 2.2rem;
     padding: 10px 100px;
     line-height: 1.5em;
 }
 
-#content div.right-para{
+#home-grid div.right-para{
     padding-right: 10px;
     padding-left: 200px;
 } 
 
-#content div.left-para{
+#home-grid div.left-para{
     padding-right: 200px;
     padding-left: 10px;
 }
@@ -224,7 +262,7 @@ nav button:hover{
     grid-row:4;
 }
 
-#content #toni-call-to-action{
+#home-grid #toni-call-to-action{
     grid-row:5;
     grid-column: 1/-1;
     font-size: 4rem ;
@@ -232,74 +270,100 @@ nav button:hover{
 
 
 
-li {
-    list-style: none;
+/* MENU PAGE CSS */
+
+#recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+    row-gap: 40px;
+    column-gap: 40px;
 }
 
 
-footer {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.recipe-card {
+    border: 2px solid var(--raw-umber-trans);
+    border-radius: 20px;
+    padding: 20px 50px;
+    display: grid;
+    grid-column: 1/-1;
 
-    background-color: var(--lion);
-    color: var(--timberwolf);
-    font-size: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 4fr;
+    box-shadow: var(--sym-shadow);
+}
 
+.recipe-card h4 {
+    grid-column: 1/-1;
+    grid-row: 1;
+
+    font-size: 2rem;
+    font-weight: 400;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--bistre);
 
 }
 
+.recipe-card img{
+    grid-column: 1/2;
+    grid-row: 2;
 
-/*
+    
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
 
-*/
-
-/* <p id="introduction-toni">Toni opened this place in 1972 with a wood-fired oven, a few folding chairs, and dough that took two days to ferment. 
-            He believed in simple things done right. 
-            He sourced tomatoes from the farm outside town and mozzarella from a neighbor who made it fresh. 
-            People came in for the pizza but stayed because they felt welcome.
-        </p>
-
-
-        <p id="seasonal-local-eco">
-            Three generations later, we still do it the same way. The dough rests for 48 hours. 
-            The sauce is made each morning. We chop vegetables and grate cheese by hand. 
-            Every ingredient we use is local, seasonal, and grown without chemicals. We don’t cut corners. 
-            We don’t freeze anything. We bake everything fresh, every day.
-        </p>
-
-        <p id="today-toni">
-            We’re still in the same spot. The oven has been replaced, but not the spirit. 
-            Some of our regulars have been coming here since they were kids. Now they bring their kids.
-            Toni’s has always been more than a pizzeria. It’s a meeting point. 
-            A place where the neighborhood gathers, talks, and celebrates. 
-        </p>
-        
-        <p id="toni-philosophy">
-            We host small events.
-            We welcome everyone. No dress code. No reservations. Just good food and open doors.
-        </p>
-        
-        <p id="toni-call-to-action">
-
-#introduction-toni{
-    grid-column-start: 0; 
-    grid-row-start: 0;
+    border-radius: 10px;
+    
 }
 
-#seasonal-local-eco{
-
+.recipe-card .desc{
+    grid-column: 2/3;
+    grid-row: 2;
 }
 
-#today-toni{
 
+.recipe-card .price{
+    grid-column: 3/4;
+    grid-row: 2;
+
+    font-size: 1.7rem;
+    align-self: start;
+    justify-self: end;
 }
 
-#toni-philosophy{
-
+.recipe-card .desc ul{
+    font-size: 1.7rem;
+    font-weight: 400;
 }
 
-#toni-call-to-action{}
- */
+.recipe-card-small{
+    border: 2px solid var(--raw-umber-trans);
+    border-radius: 20px;
+    padding: 20px 50px;
+    display: grid;
+
+    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 2fr 1fr;
+    box-shadow: var(--sym-shadow);
+}
+
+.recipe-card-small h4{
+    grid-column: 1/-1;
+    grid-row: 1;
+
+    font-size: 2rem;
+    font-weight: 400;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--bistre);
+}
+
+.recipe-card-small .beverage-prices{
+    justify-self: end;
+}
+
+.recipe-card-small .dessert-prices{
+    justify-self: end;
+}

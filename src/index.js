@@ -1,4 +1,7 @@
 import "./styles.css"
-import "./home-page.js"
+
+
+import { createHomepage } from "./home-page.js";
+
 
 //alert ("Bundling worked");
