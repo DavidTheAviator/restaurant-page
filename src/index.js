@@ -3,6 +3,7 @@ import "./styles.css"
 
 import { createHomepage } from "./home-page.js";
 import { createMenu } from "./recipe-page.js";
+import { createContactPage } from "./contact-page.js";
 
 
 
@@ -33,10 +34,11 @@ function navController(){
 
     contactBtn.addEventListener("click",()=>{
         clearContent();
-        alert("no website implemented yet")
+        createContactPage();
     })
     
 
 }
 
 navController();
+createHomepage();

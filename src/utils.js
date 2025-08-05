@@ -72,6 +72,68 @@ class ElementCreator {
 
         return hEl;
     }
+
+
+
+    static createLabel(idStr='', classStr='', textContent, forField){
+        const labelEl = document.createElement("label");
+        if(idStr !== ''){
+            labelEl.id = idStr;
+        }
+        if(classStr !== ''){
+            labelEl.classList.add(classStr);
+        }
+
+        labelEl.textContent = textContent;
+        labelEl.for = forField;
+
+        return labelEl;
+    }
+
+    static createInput(idStr='', classStr='', name, type){
+        const inputEl = document.createElement("input");
+        if(idStr !== ''){
+            inputEl.id = idStr;
+        }
+        if(classStr !== ''){
+            inputEl.classList.add(classStr);
+        }
+
+        inputEl.name = name;
+        inputEl.type = type;
+
+        return inputEl;
+    }
+
+    static createTextarea(idStr='', classStr='', name){
+        const textareaEl = document.createElement("textarea");
+        if(idStr !== ''){
+            textareaEl.id = idStr;
+        }
+        if(classStr !== ''){
+            textareaEl.classList.add(classStr);
+        }
+
+        textareaEl.name = name;
+
+        return textareaEl;
+    }
+
+    static createButton(idStr='', classStr='', textContent){
+        const buttonEl = document.createElement("button");
+        if(idStr !== ''){
+            buttonEl.id = idStr;
+        }
+        if(classStr !== ''){
+            buttonEl.classList.add(classStr);
+        }
+
+        buttonEl.textContent = textContent;
+
+        return buttonEl;
+    }
+
+
 }
 
 
